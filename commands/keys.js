@@ -1,9 +1,16 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js')
-const Rdp = require('../model/rdpSchema')
-const Datas = require('../model/playerSchema')
-const History = require('../model/HistorySchema');
-const Keys = require('../model/keySchema');
+if (process.platform === "win32"){
+    console.log(__dirname)
+    CURRENTDIR = '../'
+   }else if(process.platform === "linux"){
+       console.log(__dirname)
+       CURRENTDIR = '../../'
+   }
+const Rdp = require(CURRENTDIR+'model/rdpSchema')
+const Datas = require(CURRENTDIR+'model/playerSchema')
+const History = require(CURRENTDIR+'model/HistorySchema');
+const Keys = require(CURRENTDIR+'model/keySchema');
 
 module.exports={
     data: new SlashCommandBuilder()
